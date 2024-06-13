@@ -41,7 +41,7 @@ fun LoginView(navController: NavController, viewModel: LoginViewModel) {
     Box {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             BackBtn(navController)
-            TitleBanner(title = "Entrar com conta")
+            TitleBanner(title = "Entrar com conta", horizontal = Alignment.CenterHorizontally)
             Spacer(modifier = Modifier.height(32.dp))
             DefaultTxtField(
                 "Email",

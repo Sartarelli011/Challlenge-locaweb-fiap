@@ -49,7 +49,7 @@ fun DeletedView(navController: NavController, viewModel: DeletedViewModel, id: I
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Header(isLogged = true, screenIndex = 4, navController, id)
             Spacer(modifier = Modifier.height(16.dp))
-            TitleBanner(title = "Emails excluídos")
+            TitleBanner(title = "Emails excluídos", horizontal = Alignment.CenterHorizontally)
             if (messages.value != null && messages.value!!.isNotEmpty()) {
                 messages.value!!.forEach {
                     MailCard(
@@ -58,7 +58,7 @@ fun DeletedView(navController: NavController, viewModel: DeletedViewModel, id: I
                         date = it.date,
                         wasRead = it.wasRead,
                         id = it.id,
-                        navController= navController,
+                        navController = navController,
                         user = user,
                         recipient = it.recipient
                     )
@@ -76,11 +76,12 @@ fun DeletedView(navController: NavController, viewModel: DeletedViewModel, id: I
         FloatingActionButton(
             onClick = {
                 navController.navigate("creation?id=$id")
-            }, modifier = Modifier
+            },
+            modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(16.dp),
 
-        ) {
+            ) {
             Icon(
                 painter = painterResource(id = R.drawable.pencil_icon),
                 contentDescription = "Pencil icon",

@@ -47,7 +47,7 @@ fun RegisterView(navController: NavController, viewModel: RegisterViewModel) {
     Box {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             BackBtn(navController)
-            TitleBanner(title = "Registro de conta")
+            TitleBanner(title = "Registro de conta", horizontal = Alignment.CenterHorizontally)
             Spacer(modifier = Modifier.height(32.dp))
             DefaultTxtField(
                 "Email",

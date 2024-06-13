@@ -18,13 +18,13 @@ import br.com.fiap.locawebchallenge.R
 import br.com.fiap.locawebchallenge.ui.theme.Typography
 
 @Composable
-fun TitleBanner(title: String, subTitle: String = "") {
+fun TitleBanner(title: String, subTitle: String = "", horizontal: Alignment.Horizontal) {
     Box() {
         Column(
             modifier = Modifier
                 .fillMaxWidth(),
             verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = horizontal
         ) {
             Spacer(Modifier.height(8.dp))
             if (subTitle != "") {

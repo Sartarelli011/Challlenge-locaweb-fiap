@@ -54,7 +54,7 @@ fun MailsView(navController: NavController, viewModel: MailsViewModel, id: Int) 
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Header(isLogged = true, screenIndex = 1, navController, id)
             Spacer(modifier = Modifier.height(16.dp))
-            TitleBanner(title = "Caixa de entrada")
+            TitleBanner(title = "Caixa de entrada", horizontal = Alignment.Start,)
             Spacer(modifier = Modifier.height(8.dp))
             Row {
                 if (showUnreadOnly.value!!) {

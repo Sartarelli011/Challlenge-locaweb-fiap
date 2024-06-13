@@ -38,6 +38,7 @@ fun HomeView(navController: NavController) {
             ) {
                 TitleBanner(
                     title = "Bem-vindo ao ZenMail",
+                    horizontal = Alignment.CenterHorizontally
                 )
                 Spacer(Modifier.height(24.dp))
                 DefaultBtn(

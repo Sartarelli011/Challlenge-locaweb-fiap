@@ -60,28 +60,45 @@ fun CreationView(navController: NavController, viewModel: CreationViewModel, id:
     Box {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             BackBtn(navController)
-            TitleBanner(title = "Enviar email")
+            TitleBanner(title = "Enviar email", horizontal = Alignment.CenterHorizontally)
             Spacer(modifier = Modifier.height(32.dp))
-            InputSelec(recipient.value, {viewModel.setRecipient(it)}, recipients.value)
+            InputSelec(recipient.value, { viewModel.setRecipient(it) }, recipients.value)
             Spacer(modifier = Modifier.height(16.dp))
-            DefaultTxtArea(title = "Mensagem", keyboardType = KeyboardType.Text, onValueChange = {viewModel.setMessage(it)}, value = message.value)
+            DefaultTxtArea(
+                title = "Mensagem",
+                keyboardType = KeyboardType.Text,
+                onValueChange = { viewModel.setMessage(it) },
+                value = message.value
+            )
             Spacer(modifier = Modifier.height(32.dp))
             DefaultBtn(title = "Enviar") {
-                if(recipient.value == "" || message.value == ""){
+                if (recipient.value == "" || message.value == "") {
                     viewModel.setFormError("Campos obrigatórios")
                 } else {
-                    val spamRegex = "\\b(offer|discount|buy now|limited time only|click here|prize|win|free|grátis|promoção|compre agora|ganhe|aproveite já)\\b".toRegex(RegexOption.IGNORE_CASE)
+                    val spamRegex =
+                        "\\b(offer|discount|buy now|limited time only|click here|prize|win|free|grátis|promoção|compre agora|ganhe|aproveite já)\\b".toRegex(
+                            RegexOption.IGNORE_CASE
+                        )
                     try {
                         var status = ""
-                        if(spamRegex.containsMatchIn(message.value)){
+                        if (spamRegex.containsMatchIn(message.value)) {
                             status = "SPAM"
                         } else {
                             status = "MAIL"
                         }
-                        messagesRepo.sendMessage(message = Message(recipient = recipient.value, sender = user.email, date = Calendar.getInstance().timeInMillis, message = message.value, wasRead = false, status = status ))
+                        messagesRepo.sendMessage(
+                            message = Message(
+                                recipient = recipient.value,
+                                sender = user.email,
+                                date = Calendar.getInstance().timeInMillis,
+                                message = message.value,
+                                wasRead = false,
+                                status = status
+                            )
+                        )
                         navController.navigate("mails?id=${user.id}")
                         viewModel.setFormError("")
-                    } catch (e : Exception) {
+                    } catch (e: Exception) {
                         viewModel.setFormError(e.message!!)
                     }
                 }

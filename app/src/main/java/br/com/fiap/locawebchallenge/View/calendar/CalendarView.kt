@@ -57,7 +57,7 @@ fun CalendarView(navController: NavController, viewModel: CalendarViewModel) {
     Box {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             BackBtn(navController)
-            TitleBanner(title = "Criação de evento")
+            TitleBanner(title = "Criação de evento", horizontal = Alignment.CenterHorizontally)
             Spacer(modifier = Modifier.height(32.dp))
             DefaultTxtField(
                 "Título do evento",
@@ -66,16 +66,24 @@ fun CalendarView(navController: NavController, viewModel: CalendarViewModel) {
                 value = title,
             )
             Spacer(modifier = Modifier.height(16.dp))
-            DatePickerDefault( "Selecione a data inicial", setDate = {viewModel.setInitialDate(it)}, date = initialDate)
+            DatePickerDefault(
+                "Selecione a data inicial",
+                setDate = { viewModel.setInitialDate(it) },
+                date = initialDate
+            )
             Spacer(modifier = Modifier.height(16.dp))
-            DatePickerDefault( "Selecione a data final", setDate = {viewModel.setFinalDate(it)}, date = finalDate)
+            DatePickerDefault(
+                "Selecione a data final",
+                setDate = { viewModel.setFinalDate(it) },
+                date = finalDate
+            )
             Spacer(modifier = Modifier.height(32.dp))
             DefaultBtn(title = "Criar evento") {
                 try {
                     Log.i("TAVAZIO", title)
                     Log.i("TAVAZIO", initialDate)
                     Log.i("TAVAZIO", finalDate)
-                    if(title != "" && initialDate != "" && finalDate != ""){
+                    if (title != "" && initialDate != "" && finalDate != "") {
                         viewModel.setFormError("")
                         addCalendarEvent(context, initialDate, finalDate, title)
                     } else {
