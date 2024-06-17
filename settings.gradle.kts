@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "LocawebChallenge"
+rootProject.name = "ZenMail"
 include(":app")
  
