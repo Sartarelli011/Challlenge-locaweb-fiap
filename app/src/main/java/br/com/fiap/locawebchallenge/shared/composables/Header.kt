@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -61,6 +62,11 @@ fun Header(
                         contentDescription = "Locamail Logo",
                         modifier = Modifier.size(48.dp)
                     )
+                    Text(text = "ZenMail",
+                        style = Typography.titleLarge,
+                        textAlign = TextAlign.Center,
+                        color = colorResource(R.color.secondary)
+                    )
                 }
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -72,7 +78,7 @@ fun Header(
                             Modifier.height(32.dp)
                         ) {
                             Text(
-                                text = "Entrada",
+                                text = "ENTRADA",
                                 style = Typography.bodyLarge,
                                 color = colorResource(id = if (screenIndex == 1) R.color.secondary else R.color.primary)
                             )
@@ -82,18 +88,17 @@ fun Header(
                             Modifier.height(32.dp)
                         ) {
                             Text(
-                                text = "Enviados",
+                                text = "ENVIADOS",
                                 style = Typography.bodyLarge,
                                 color = colorResource(id = if (screenIndex == 2) R.color.secondary else R.color.primary)
                             )
                         }
-
                         TextButton(
                             onClick = { navController!!.navigate("deleted?id=$id") },
                             Modifier.height(32.dp)
                         ) {
                             Text(
-                                text = "Excluídos",
+                                text = "EXCLUÍDOS",
                                 style = Typography.bodyLarge,
                                 color = colorResource(id = if (screenIndex == 4) R.color.secondary else R.color.primary)
                             )

@@ -8,30 +8,30 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import br.com.fiap.locawebchallenge.R
 
-val Roboto = FontFamily(
-    Font(R.font.roboto_regular, FontWeight.Normal),
-    Font(R.font.roboto_bold, FontWeight.Bold),
-    Font(R.font.roboto_medium, FontWeight.Medium)
+val Monteserrat = FontFamily(
+    Font(R.font.montserrat_regular, FontWeight.Normal),
+    Font(R.font.montserrat_bold, FontWeight.Bold),
+    Font(R.font.montserrat_medium, FontWeight.Medium)
 )
 
-// Set of Material typography styles to start with
+
 val Typography = Typography(
     bodyLarge = TextStyle(
-        fontFamily = Roboto,
+        fontFamily = Monteserrat,
         fontWeight = FontWeight.Medium,
         fontSize = 14.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     ),
     titleLarge = TextStyle(
-        fontFamily = Roboto,
+        fontFamily = Monteserrat,
         fontWeight = FontWeight.Bold,
         fontSize = 32.sp,
         lineHeight = 28.sp,
         letterSpacing = 0.sp
     ),
     labelSmall = TextStyle(
-        fontFamily = Roboto,
+        fontFamily = Monteserrat,
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
         lineHeight = 16.sp,
